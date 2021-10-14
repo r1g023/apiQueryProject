@@ -1,0 +1,42 @@
+{
+  "name": "apiqueryproject",
+  "version": "1.0.0",
+  "description": "project challenge",
+  "main": "index.js",
+  "scripts": {
+    "test": "cross-env NODE_ENV=testing jest --watchAll --verbose --runInBand",
+    "start": "node index.js",
+    "server": "cross-env NODE_ENV=development nodemon --require dotenv/config index.js",
+    "migrate": "knex migrate:latest",
+    "rollback": "knex migrate:rollback",
+    "seed": "knex seed:run"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://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@github.com/rigo0523/apiQueryProject.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rigo0523/apiQueryProject/issues"
+  },
+  "homepage": "https://github.com/rigo0523/apiQueryProject#readme",
+  "dependencies": {
+    "@types/jest": "^27.0.2",
+    "cors": "^2.8.5",
+    "cross-env": "^7.0.3",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "helmet": "^4.6.0",
+    "knex": "^0.95.11",
+    "morgan": "^1.10.0",
+    "npm": "^8.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.0.1",
+    "jest": "^27.2.5",
+    "nodemon": "^2.0.13",
+    "supertest": "^6.1.6"
+  }
+}

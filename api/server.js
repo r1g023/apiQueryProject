@@ -1,0 +1,23 @@
+const express = require("express");
+const server = express();
+const cors = require("cors");
+const helmet = require("helmet");
+
+//GLOBACL MIDDLEWARE
+server.use(express.json(), cors(), helmet());
+
+//import routers
+const pingRouter = require("../pingRouter/ping-router");
+
+//server endpoints ---->
+server.use("/api/ping", pingRouter);
+
+//middleware for CATCH ERROR on all endpoints of /api/messages
+server.use((err, req, res, next) => {
+  console.log(err);
+  res.status(500).json({
+    message: "500 error: Something went wrong",
+  });
+});
+
+module.exports = server;

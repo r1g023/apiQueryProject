@@ -12,7 +12,7 @@ const postsRouter = require("../postsRouter/posts-router");
 
 //server endpoints ---->
 server.use("/api/ping", pingRouter);
-server.use("/api/posts/", postsRouter);
+server.use("/api/posts", postsRouter);
 
 //middleware for CATCH ERROR on all endpoints of /api/messages
 server.use((err, req, res, next) => {

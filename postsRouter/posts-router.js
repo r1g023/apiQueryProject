@@ -1,29 +1,23 @@
 const router = require("express").Router();
 const axios = require("axios");
-const { json } = require("express");
+const { checkTag } = require("./posts-middleware");
 
 //GET /api/posts
-router.get("/", async (req, res, next) => {
+//checkTag middleware to validate tag parameter
+router.get("/", checkTag(), async (req, res, next) => {
   let requestOptions = {
     headers: { accept: "application/json" },
   };
+  const tags = req.query.tags;
 
-  //taq query
-  const tag = req.query.tag;
-  //   if (!tag) {
-  //     return res.json("no ");
-  //   }
+  console.log("tag--->", tags);
   axios
     .get(
-      `https://api.hatchways.io/assessment/blog/posts?tag=${tag}`,
+      `https://api.hatchways.io/assessment/blog/posts?tags=${tags}`,
       requestOptions
     )
     .then((resolve) => {
-      if (tag) {
-        res.status(200).json(resolve.data);
-      } else {
-        res.status(400).json({ error: "Tags parameter is required" });
-      }
+      res.status(200).json(resolve.data);
     })
     .catch((err) => next(err));
 });

@@ -3,7 +3,10 @@ const server = express();
 const cors = require("cors");
 const helmet = require("helmet");
 const redis = require("redis");
-const client = require("../index");
+
+const REDIS_PORT = process.env.PORT || 6379;
+
+const client = redis.createClient(REDIS_PORT);
 
 //GLOBACL MIDDLEWARE
 server.use(express.json(), cors(), helmet());

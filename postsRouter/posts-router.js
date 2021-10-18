@@ -8,12 +8,12 @@ router.get("/", checkTag(), async (req, res, next) => {
   let requestOptions = {
     headers: { accept: "application/json" },
   };
-  const tags = req.query.tags;
+  const tag = req.query.tag;
 
-  console.log("tag--->", tags);
+  console.log("tag--->", tag);
   axios
     .get(
-      `https://api.hatchways.io/assessment/blog/posts?tags=${tags}`,
+      `https://api.hatchways.io/assessment/blog/posts?tag=${tag}`,
       requestOptions
     )
     .then((resolve) => {

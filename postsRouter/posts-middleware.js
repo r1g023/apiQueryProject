@@ -6,9 +6,9 @@ module.exports = {
 function checkTag() {
   return (req, res, next) => {
     //taq query
-    const tags = req.query.tags;
-    if (!tags) {
-      return res.status(400).json({ error: "Tags paraddmeter is required" });
+    const tag = req.query.tag;
+    if (!tag) {
+      return res.status(400).json({ error: "Tags parameter is required" });
     }
     next();
   };

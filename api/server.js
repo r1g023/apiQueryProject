@@ -2,6 +2,8 @@ const express = require("express");
 const server = express();
 const cors = require("cors");
 const helmet = require("helmet");
+const redis = require("redis");
+const client = require("../index");
 
 //GLOBACL MIDDLEWARE
 server.use(express.json(), cors(), helmet());

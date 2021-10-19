@@ -7,6 +7,7 @@ describe("GET / members integrations test", () => {
     expect(res.statusCode).toBe(400);
     expect(res.type).toBe("application/json");
   });
+
   it("GET ping route /api/ping", async () => {
     const res = await request(server).get("/api/ping");
     expect(res.body).toEqual({ success: true });

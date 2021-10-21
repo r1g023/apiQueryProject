@@ -29,7 +29,7 @@ router.get("/", checkTag(), async (req, res, next) => {
         });
       } else {
         const userPosts = await axios.get(
-          process.env.TAG?tag=${tag}`,
+          process.env.TAG,
           requestOptions
         );
 
